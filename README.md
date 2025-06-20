@@ -98,6 +98,9 @@ We have used a 2-stage pseudo label policy.
 
 # Model Weights
 Link: 
+```
+https://uofc-my.sharepoint.com/:f:/g/personal/tapotosh_ghosh_ucalgary_ca/Et5pTPRcF0tGjyZPa32_QmQBQzJxP-JPZcxVTRnId2vsdw?e=yGfQlW
+```
 
 Folder - ModelsUsedForPseudoGeneration+PretrainedCheckpoints.
 
