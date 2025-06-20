@@ -32,6 +32,7 @@ torchrun --master_port 12348 --nproc_per_node=8 SlotCon-main/main_pretrain_conti
 We have used mmsegmentation pipeline for this. 
 ##Environment Setup
 Make sure to install it in editable format 
+please check mmseg_requirements.txt if you have issue with versions.
 ```
 cd mmsegmentation
 pip install -e .
