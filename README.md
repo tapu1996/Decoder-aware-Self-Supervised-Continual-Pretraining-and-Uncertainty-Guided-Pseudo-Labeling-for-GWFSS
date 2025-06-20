@@ -1,6 +1,6 @@
 # GWFSS_Challenge
 
-#Pretraining
+# Pretraining
 
 
 Environment installation
