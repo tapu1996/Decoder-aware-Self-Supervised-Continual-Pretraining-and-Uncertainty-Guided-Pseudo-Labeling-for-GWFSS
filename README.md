@@ -50,25 +50,35 @@ For Training from pseudo label (ConvNext-L)
 ---Initialized GWFSS pretrained backbone: ConvNextUpperNet_large_512Decon
 
 We used the pseudo label trained weight to finally train on 5 folds (5x2 = 10 models)
-  
+```  
 ---ConvNextUpperNet_large_512f0.py
----ConvNextUpperNet_large_512f1.py
----ConvNextUpperNet_large_512f2.py
----ConvNextUpperNet_large_512f3.py
----ConvNextUpperNet_large_512f4.py
----ConvNextUpperNet_large_512f0_c
----ConvNextUpperNet_large_512f1_c
----ConvNextUpperNet_large_512f2_c
----ConvNextUpperNet_large_512f3_c
----ConvNextUpperNet_large_512f4_c
 
+---ConvNextUpperNet_large_512f1.py
+
+---ConvNextUpperNet_large_512f2.py
+
+---ConvNextUpperNet_large_512f3.py
+
+---ConvNextUpperNet_large_512f4.py
+
+---ConvNextUpperNet_large_512f0_c
+
+---ConvNextUpperNet_large_512f1_c
+
+---ConvNextUpperNet_large_512f2_c
+
+---ConvNextUpperNet_large_512f3_c
+
+---ConvNextUpperNet_large_512f4_c
+```
 Configs for Beit training
+```
 ---beit_large_512f0
 ---beit_large_512f1
 ---beit_large_512f2
 ---beit_large_512f3
 ---beit_large_512f4
-
+```
 
 to train the model please check inside the dataloader and change the data paths of data_root, also check inside train_dataloader and val_dataloader. Make sure that your checkpoint path is correct as well.
 
