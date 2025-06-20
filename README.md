@@ -90,11 +90,15 @@ python utils\Inference.py
 
 ## Pseudo Label Generation
 We have used a 2-stage pseudo label policy.
+
 ---Code used for Similarity measure:  mmsegmentation/projects/GWFSS_competition/utils/similarity_measure.py
+
 ---Code used for Uncertainity Estimation measure:  mmsegmentation/projects/GWFSS_competition/utils\script_10fold_uncertainty.py
 
 
-Model Weights
+# Model Weights
+Link: 
+
 Folder - ModelsUsedForPseudoGeneration+PretrainedCheckpoints.
 
 1. Pretrained DeConML - The pretrained ConvNext-L model was trained using a two-stage continual DeConML approach with an FPN (Feature Pyramid Network) decoder. In the first phase, the encoder was initialized with ImageNet-1K weights (available in https://dl.fbaipublicfiles.com/convnext/convnext_large_1k_384.pth), and its layers were frozen for the first 50 epochs. During this phase, only the decoder and other randomly initialized layers were pretrained on the given unlabelled pretraining dataset. In the second phase, the entire encoder-decoder block was fine-tuned on the same dataset, without any frozen layers. This pretrained ConvNext-L backbone was then used to find similar images based on a given training set and to initialize the ConvNext-L model during training with labeled data.
