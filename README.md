@@ -52,23 +52,14 @@ For Training from pseudo label (ConvNext-L)
 We used the pseudo label trained weight to finally train on 5 folds (5x2 = 10 models)
 ```  
 ---ConvNextUpperNet_large_512f0.py
-
 ---ConvNextUpperNet_large_512f1.py
-
 ---ConvNextUpperNet_large_512f2.py
-
 ---ConvNextUpperNet_large_512f3.py
-
 ---ConvNextUpperNet_large_512f4.py
-
 ---ConvNextUpperNet_large_512f0_c
-
 ---ConvNextUpperNet_large_512f1_c
-
 ---ConvNextUpperNet_large_512f2_c
-
 ---ConvNextUpperNet_large_512f3_c
-
 ---ConvNextUpperNet_large_512f4_c
 ```
 Configs for Beit training
