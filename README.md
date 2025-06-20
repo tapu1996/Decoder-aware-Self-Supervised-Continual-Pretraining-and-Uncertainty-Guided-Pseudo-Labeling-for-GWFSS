@@ -93,3 +93,22 @@ We have used a 2-stage pseudo label policy.
 ---Code used for Similarity measure:  mmsegmentation/projects/GWFSS_competition/utils/similarity_measure.py
 ---Code used for Uncertainity Estimation measure:  mmsegmentation/projects/GWFSS_competition/utils\script_10fold_uncertainty.py
 
+
+Model Weights
+Folder - ModelsUsedForPseudoGeneration+PretrainedCheckpoints.
+
+1. Pretrained DeConML - The pretrained ConvNext-L model was trained using a two-stage continual DeConML approach with an FPN (Feature Pyramid Network) decoder. In the first phase, the encoder was initialized with ImageNet-1K weights (available in https://dl.fbaipublicfiles.com/convnext/convnext_large_1k_384.pth), and its layers were frozen for the first 50 epochs. During this phase, only the decoder and other randomly initialized layers were pretrained on the given unlabelled pretraining dataset. In the second phase, the entire encoder-decoder block was fine-tuned on the same dataset, without any frozen layers. This pretrained ConvNext-L backbone was then used to find similar images based on a given training set and to initialize the ConvNext-L model during training with labeled data.
+
+2. ConvnextLabelledDataonly and DeConMLLabelledDataOnly: Encoders in the ConvNextLabelledDataOnly folder are initialized with the ConvNext-L ImageNet-1K pretrained model, while encoders in the DeConMLLabelledDataOnly folder are initialized with the pretrained ConvNext-L from the unlabelled pretraining step (available in the Pretrained DeConML folder). Both sets of models were trained using 5-fold cross-validation. These pretrained models were then utilized for the second stage of pseudo-labelling.
+
+3. Trained on Pseudo Only: Here, the model encoders have been initialized with ConvNext-L ImageNet-1K weight and continual 2-stage DeConML pretrained weights. These models are trained only on pseudo data only.
+
+
+Folder - Final_models
+
+4. Final Ensemble Models:
+	4.1 DeconPseudoFirstMainSecond: The full model is initialized with pseudolabelled weight (3. Trained on Pseudo Only - ConvNext-L DeConML weight) and trained with only the given 99 labelled dataset with a lower learning rate compared to stage 3: Trained on Pseudo Only.
+	4.2 ConvNextPseudoFirstMainSecond: The full model is initialized with pseudolabelled weight (3. Trained on Pseudo Only - ConvNext-L ImageNet-1k weight) and trained with only the given 99 labelled dataset with a lower learning rate compared to stage 3: Trained on Pseudo Only.
+	4.3 beitFolds: It contained models trained with only the given 99 labelled dataset. The encoder was initialized with BeitV2 ImageNet-1K weight beitv2_large_patch16_224_pt1k_ft1k (available on: https://github.com/microsoft/unilm/tree/master/beit2, https://github.com/addf400/files/releases/download/BEiT-v2/beitv2_large_patch16_224_pt1k_ft21kto1k.pth)
+	
+All these weights available on 4.1, 4.2, 4.3 are ensembled by summing their logits to get the final result.
