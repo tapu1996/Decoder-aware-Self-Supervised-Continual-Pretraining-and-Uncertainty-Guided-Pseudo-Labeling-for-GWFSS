@@ -1,0 +1,86 @@
+################################################
+##  With StdEnv/2020
+module load StdEnv/2020 gcc/9.3.0 cuda/11.4 opencv/4.8.0 python/3.9 scipy-stack
+virtualenv --no-download mmenv
+pip install mmengine==0.10.5 mmsegmentation==0.30.0 opencv-python==4.10.0.84 opendatalab==0.0.10 openmim==0.3.9 openxlab==0.1.1 oss2==2.17.0 torch torchvision yapf==0.40.1 tqdm==4.65.2
+pip install numpy==1.23.0
+mim install mmcv-full==1.6.0
+# Gets me this error
+Traceback (most recent call last):
+  File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmseg/.mim/tools/train.py", line 17, in <module>
+    from mmseg.apis import init_random_seed, set_random_seed, train_segmentor
+  File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmseg/apis/__init__.py", line 2, in <module>
+    from .inference import inference_segmentor, init_segmentor, show_result_pyplot
+  File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmseg/apis/inference.py", line 9, in <module>
+    from mmseg.models import build_segmentor
+  File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmseg/models/__init__.py", line 2, in <module>
+    from .backbones import *  # noqa: F401,F403
+  File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmseg/models/backbones/__init__.py", line 7, in <module>
+    from .fast_scnn import FastSCNN
+  File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmseg/models/backbones/fast_scnn.py", line 7, in <module>
+    from mmseg.models.decode_heads.psp_head import PPM
+  File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmseg/models/decode_heads/__init__.py", line 2, in <module>
+    from .ann_head import ANNHead
+  File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmseg/models/decode_heads/ann_head.py", line 8, in <module>
+    from .decode_head import BaseDecodeHead
+  File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmseg/models/decode_heads/decode_head.py", line 12, in <module>
+    from ..losses import accuracy
+  File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmseg/models/losses/__init__.py", line 6, in <module>
+    from .focal_loss import FocalLoss
+  File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmseg/models/losses/focal_loss.py", line 6, in <module>
+    from mmcv.ops import sigmoid_focal_loss as _sigmoid_focal_loss
+  File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmcv/ops/__init__.py", line 2, in <module>
+    from .active_rotated_filter import active_rotated_filter
+  File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmcv/ops/active_rotated_filter.py", line 10, in <module>
+    ext_module = ext_loader.load_ext(
+  File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmcv/utils/ext_loader.py", line 13, in load_ext
+    ext = importlib.import_module('mmcv.' + name)
+  File "/cvmfs/soft.computecanada.ca/easybuild/software/2020/avx2/Core/python/3.9.6/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+ImportError: /lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.9/site-packages/mmcv/_ext.cpython-39-x86_64-linux-gnu.so: undefined symbol: _ZN2at4_ops19empty_memory_format4callEN3c108ArrayRefINS2_6SymIntEEENS2_8optionalINS2_10ScalarTypeEEENS6_INS2_6LayoutEEENS6_INS2_6DeviceEEENS6_IbEENS6_INS2_12MemoryFormatEEE
+Tracebac
+
+################################################
+##  To try with StdEnv/2023
+
+module --force purge
+module load StdEnv/2023 python/3.10.13
+virtualenv --no-download mmenv
+source mmenv/bin/activate
+pip install mmengine==0.10.5 mmsegmentation==0.30.0 opencv-python==4.10.0.84 opendatalab==0.0.10 openmim==0.3.9 openxlab==0.1.1 oss2==2.17.0 torch torchvision yapf==0.40.1 tqdm==4.65.2
+pip install torch==1.12.1+cu102 torchvision==0.13.1+cu102 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu102
+mim install mmcv-full==1.6.0
+        File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.10/site-packages/setuptools/command/build_ext.py", line 202, in build_extension
+          _build_ext.build_extension(self, ext)
+        File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.10/site-packages/setuptools/_distutils/command/build_ext.py", line 528, in build_extension
+          objects = self.compiler.compile(sources,
+        File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 679, in unix_wrap_ninja_compile
+          _write_ninja_file_and_compile_objects(
+        File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 1785, in _write_ninja_file_and_compile_objects
+          _run_ninja_build(
+        File "/lustre07/scratch/sebquet/VisionResearchLab/DenseSSL/mmenv/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 2121, in _run_ninja_build
+          raise RuntimeError(message) from e
+      RuntimeError: Error compiling objects for extension
+      [end of output]
+I get an error with torch version which is not 1.12.0
+
+
+################################################
+################################################
+# pip install oss2~=2.17.0
+# pip install --no-index mmengine==0.10.4 mmcv==2.0.0 openmim ftfy regex
+# pip install mmcv-full==1.6.0 mmsegmentation==0.30.0 mmdet==3.3.0
+
+### Gets me theres errors:
+# ERROR: openxlab 0.0.19+computecanada has requirement pytz~=2023.3, but you'll have pytz 2021.3+computecanada which is incompatible.
+# ERROR: openxlab 0.0.19+computecanada has requirement requests~=2.28.2, but you'll have requests 2.27.1+computecanada which is incompatible.
+# ERROR: openxlab 0.0.19+computecanada has requirement rich~=13.4.2, but you'll have rich 13.9.0+computecanada which is incompatible.
+# ERROR: openxlab 0.0.19+computecanada has requirement tqdm~=4.65.0, but you'll have tqdm 4.66.5+computecanada which is incompatible.
+
+# pip install --no-index torch==1.10
+# pip install opencv-python
+# pip install mmsegmentation==1.0.0
+
+# pip install -U openmim
+# mim install mmengine
+# mim install "mmcv>=2.0.0"

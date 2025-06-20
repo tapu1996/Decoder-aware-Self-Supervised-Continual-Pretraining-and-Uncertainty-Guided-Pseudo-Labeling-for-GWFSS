@@ -1,0 +1,13 @@
+__pycache__/
+*.out
+SlotCon-main/transfer/segmentation/data/
+SlotCon-main/transfer/detection/output/
+SlotCon-main/transfer/detection/model/
+apex/
+detectron2/
+output/
+SlotCon-main/scripts
+SlotCon-main/output
+SlotCon-main/vis
+mmselfsup-main/work_dirs
+mmselfsup-main/scripts/*.out
