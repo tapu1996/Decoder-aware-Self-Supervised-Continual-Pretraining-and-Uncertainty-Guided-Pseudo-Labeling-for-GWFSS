@@ -4,7 +4,7 @@ The project folder is inside mmsegmentation/projects/GWFSS_competition
 
 All the config files are available inside mmsegmentation/projects/GWFSS_competition/configs
 
-***How did I trin***
+***How did I train***
 
 We used the following config files for training the final models
 
