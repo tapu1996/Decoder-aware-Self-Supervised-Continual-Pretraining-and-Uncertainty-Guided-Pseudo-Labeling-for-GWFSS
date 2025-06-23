@@ -117,6 +117,6 @@ Folder - Final_models
 4. Final Ensemble Models:
 	4.1 DeconPseudoFirstMainSecond: The full model is initialized with pseudolabelled weight (3. Trained on Pseudo Only - ConvNext-L DeConML weight) and trained with only the given 99 labelled dataset with a lower learning rate compared to stage 3: Trained on Pseudo Only.
 	4.2 ConvNextPseudoFirstMainSecond: The full model is initialized with pseudolabelled weight (3. Trained on Pseudo Only - ConvNext-L ImageNet-1k weight) and trained with only the given 99 labelled dataset with a lower learning rate compared to stage 3: Trained on Pseudo Only.
-	4.3 beitFolds: It contained models trained with only the given 99 labelled dataset. The encoder was initialized with BeitV2 ImageNet-1K weight beitv2_large_patch16_224_pt1k_ft1k (available on: https://github.com/microsoft/unilm/tree/master/beit2, https://github.com/addf400/files/releases/download/BEiT-v2/beitv2_large_patch16_224_pt1k_ft21kto1k.pth)
+	4.3 beitFolds: It contained models trained with only the given 99 labelled dataset. The encoder was initialized with BeitV2 ImageNet-1K weight beitv2_large_patch16_224_pt1k_ft1k (available on: https://github.com/microsoft/unilm/tree/master/beit2)
 	
 All these weights available on 4.1, 4.2, 4.3 are ensembled by summing their logits to get the final result. Use the models inside Final_models for the inference.
