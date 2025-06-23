@@ -112,7 +112,7 @@ Folder - ModelsUsedForPseudoGeneration+PretrainedCheckpoints.
 3. Trained on Pseudo Only: Here, the model encoders have been initialized with ConvNext-L ImageNet-1K weight and continual 2-stage DeConML pretrained weights. These models are trained only on pseudo data only.
 
 
-Folder - Final_models
+Folder - Final_models (Use it for inference)
 
 4. Final Ensemble Models:
    
