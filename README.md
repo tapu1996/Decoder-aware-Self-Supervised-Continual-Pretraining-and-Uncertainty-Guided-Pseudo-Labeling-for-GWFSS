@@ -85,7 +85,7 @@ python tools/train.py [Config File Path] --work-dir [Path to save log and weight
 Before doing inference please change all the config paths, checkpoints, data and output dir. ConvNextUpperNet_large_768.py config was used for ConvNeXt models, beit_large_512f0.py was used for BEiT models. We have ensembled all the prediction.
 We have used absolute path. Please replace it with your absolute path
 ```
-cd mmsegmentation
+cd mmsegmentation/projects/GWFSS_competition
 python utils\Inference.py
 ```
 
