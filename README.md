@@ -2,6 +2,10 @@
 :trophy: Winner of innovation award of Global wheat full semantic segmenation challenge.
 
 :white_check_mark: This method has been accepted in CVPPA workshop (ICCV 2025)
+
+<img width="1920" height="1152" alt="highres - edites" src="https://github.com/user-attachments/assets/7ced31c5-3503-4969-a206-75f60af02705" />
+
+
 # Pretraining
 
 
