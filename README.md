@@ -1,4 +1,4 @@
-# GWFSS_Challenge
+# Decoder-aware Self-Supervised Continual Pretraining and Uncertainty-Guided Pseudo-Labeling for Wheat Organ Segmentation
 :trophy: Winner of innovation award of Global wheat full semantic segmenation challenge.
 
 :white_check_mark: This method has been accepted in CVPPA workshop (ICCV 2025)
