@@ -1,5 +1,6 @@
 # GWFSS_Challenge
 :trophy: Winner of innovation award of Global wheat full semantic segmenation challenge.
+
 :white_check_mark: This method has been accepted in CVPPA workshop (ICCV 2025)
 # Pretraining
 
